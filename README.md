@@ -6,3 +6,4 @@ Technologie:
 HTML5,
 CSS,
 JavaScript (Canvas API)
+Okres: 25.03.2026 – 08.06.2026
