@@ -5,5 +5,7 @@ Celem gry jest przejście przez wszystkie poziomy i dotarcie do wyjścia.
 Technologie:
 HTML5,
 CSS,
-JavaScript (Canvas API)
+JavaScript (Canvas API).
+
+
 Okres: 25.03.2026 – 08.06.2026
