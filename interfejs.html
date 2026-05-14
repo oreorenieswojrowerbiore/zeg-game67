@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<title>ZEG-Game</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f3f4fb;
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:70px;
+
+    padding:40px;
+    flex-wrap:wrap;
+}
+
+/* =========================
+   WSPÓLNE
+========================= */
+
+.screen{
+    background:#f7f7fc;
+    border-radius:24px;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+
+    overflow:hidden;
+}
+
+.content{
+    width:100%;
+    text-align:center;
+}
+
+.title{
+    color:#2f62ff;
+    font-weight:800;
+    line-height:1.1;
+}
+
+.subtitle{
+    color:#2f3b52;
+    font-weight:500;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+}
+
+/* =========================
+   BUTTONY
+========================= */
+
+.btn{
+    border:none;
+    background:white;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+
+    font-weight:600;
+    color:#2f3b52;
+
+    cursor:pointer;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.06);
+
+    transition:0.2s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:#2f62ff;
+    color:white;
+}
+
+/* =========================
+   DESKTOP
+========================= */
+
+.desktop{
+    width:900px;
+    height:700px;
+
+    padding:70px 100px;
+}
+
+.desktop .content{
+    max-width:420px;
+}
+
+.desktop .title{
+    font-size:88px;
+    margin-bottom:12px;
+}
+
+.desktop .subtitle{
+    font-size:38px;
+    margin-bottom:60px;
+}
+
+.desktop .menu{
+    gap:22px;
+}
+
+.desktop .btn{
+    height:78px;
+    border-radius:16px;
+    font-size:24px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+.mobile{
+    width:340px;
+    height:700px;
+
+    padding:50px 25px;
+}
+
+.mobile .title{
+    font-size:54px;
+    margin-bottom:10px;
+}
+
+.mobile .subtitle{
+    font-size:28px;
+    margin-bottom:45px;
+}
+
+.mobile .menu{
+    gap:16px;
+}
+
+.mobile .btn{
+    height:58px;
+    border-radius:14px;
+    font-size:18px;
+}
+
+.mobile .btn i{
+    font-size:16px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1400px){
+
+    body{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- =========================
+     KOMPUTER
+========================= -->
+
+<div class="screen desktop">
+
+    <div class="content">
+
+        <h1 class="title">ZEG-Game</h1>
+
+        <h2 class="subtitle">Labirynt</h2>
+
+        <div class="menu">
+
+            <button class="btn btn-primary">
+                <i class="fa-regular fa-play"></i>
+                Nowa gra
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-trophy"></i>
+                Najlepsze wyniki
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-gear"></i>
+                Ustawienia
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-circle-info"></i>
+                Instrukcje
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     TELEFON
+========================= -->
+
+<div class="screen mobile">
+
+    <div class="content">
+
+        <h1 class="title">ZEG-Game</h1>
+
+        <h2 class="subtitle">Labirynt</h2>
+
+        <div class="menu">
+
+            <button class="btn btn-primary">
+                <i class="fa-regular fa-play"></i>
+                Nowa gra
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-trophy"></i>
+                Najlepsze wyniki
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-gear"></i>
+                Ustawienia
+            </button>
+
+            <button class="btn">
+                <i class="fa-solid fa-circle-info"></i>
+                Instrukcje
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
