@@ -10,58 +10,81 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
 <style>
-
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:'Segoe UI',Arial,sans-serif;
 }
 
 body{
-    background:#f3f4fb;
     min-height:100vh;
-
+    background:
+        radial-gradient(circle at top left,#8fb3ff 0,#f3f4fb 35%),
+        linear-gradient(135deg,#eef2ff,#f8fafc);
     display:flex;
     justify-content:center;
     align-items:center;
     gap:70px;
-
     padding:40px;
     flex-wrap:wrap;
 }
 
-/* =========================
-   WSPÓLNE
-========================= */
-
 .screen{
-    background:#f7f7fc;
-    border-radius:24px;
-
+    position:relative;
+    background:rgba(255,255,255,0.72);
+    border:1px solid rgba(255,255,255,0.9);
+    border-radius:32px;
     display:flex;
     justify-content:center;
-    align-items:flex-start;
-
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-
+    align-items:center;
+    box-shadow:0 25px 60px rgba(47,98,255,0.18);
     overflow:hidden;
+    backdrop-filter:blur(18px);
+}
+
+.screen::before{
+    content:"";
+    position:absolute;
+    width:260px;
+    height:260px;
+    background:#2f62ff;
+    border-radius:50%;
+    top:-90px;
+    right:-90px;
+    opacity:0.12;
+}
+
+.screen::after{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    background:#7c3aed;
+    border-radius:50%;
+    bottom:-70px;
+    left:-70px;
+    opacity:0.10;
 }
 
 .content{
+    position:relative;
+    z-index:1;
     width:100%;
     text-align:center;
 }
 
 .title{
-    color:#2f62ff;
-    font-weight:800;
-    line-height:1.1;
+    color:#2454ff;
+    font-weight:900;
+    letter-spacing:-3px;
+    line-height:1;
+    text-shadow:0 8px 20px rgba(47,98,255,0.18);
 }
 
 .subtitle{
-    color:#2f3b52;
-    font-weight:500;
+    color:#475569;
+    font-weight:700;
 }
 
 .menu{
@@ -69,120 +92,117 @@ body{
     flex-direction:column;
 }
 
-/* =========================
-   BUTTONY
-========================= */
-
 .btn{
     border:none;
-    background:white;
-
+    background:rgba(255,255,255,0.9);
     display:flex;
     align-items:center;
-    justify-content:center;
-    gap:14px;
-
-    font-weight:600;
-    color:#2f3b52;
-
+    justify-content:flex-start;
+    gap:16px;
+    font-weight:800;
+    color:#334155;
     cursor:pointer;
+    box-shadow:0 8px 20px rgba(15,23,42,0.08);
+    transition:0.25s;
+    position:relative;
+    overflow:hidden;
+}
 
-    box-shadow:0 4px 12px rgba(0,0,0,0.06);
-
-    transition:0.2s;
+.btn i{
+    width:38px;
+    height:38px;
+    border-radius:12px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:#eef2ff;
+    color:#2f62ff;
 }
 
 .btn:hover{
-    transform:translateY(-2px);
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 14px 28px rgba(47,98,255,0.18);
 }
 
 .btn-primary{
-    background:#2f62ff;
+    background:linear-gradient(135deg,#2f62ff,#7c3aed);
     color:white;
 }
 
-/* =========================
-   DESKTOP
-========================= */
+.btn-primary i{
+    background:rgba(255,255,255,0.2);
+    color:white;
+}
 
 .desktop{
     width:900px;
     height:700px;
-
     padding:70px 100px;
 }
 
 .desktop .content{
-    max-width:420px;
+    max-width:460px;
 }
 
 .desktop .title{
-    font-size:88px;
-    margin-bottom:12px;
+    font-size:86px;
+    margin-bottom:14px;
 }
 
 .desktop .subtitle{
-    font-size:38px;
-    margin-bottom:60px;
+    font-size:34px;
+    margin-bottom:56px;
 }
 
 .desktop .menu{
-    gap:22px;
+    gap:20px;
 }
 
 .desktop .btn{
-    height:78px;
-    border-radius:16px;
-    font-size:24px;
+    height:76px;
+    border-radius:22px;
+    font-size:23px;
+    padding:0 24px;
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 .mobile{
     width:340px;
     height:700px;
-
     padding:50px 25px;
 }
 
 .mobile .title{
-    font-size:54px;
-    margin-bottom:10px;
+    font-size:52px;
+    margin-bottom:12px;
 }
 
 .mobile .subtitle{
-    font-size:28px;
-    margin-bottom:45px;
+    font-size:26px;
+    margin-bottom:44px;
 }
 
 .mobile .menu{
-    gap:16px;
+    gap:15px;
 }
 
 .mobile .btn{
-    height:58px;
-    border-radius:14px;
-    font-size:18px;
+    height:60px;
+    border-radius:18px;
+    font-size:17px;
+    padding:0 16px;
 }
 
 .mobile .btn i{
-    font-size:16px;
+    width:32px;
+    height:32px;
+    font-size:14px;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
 @media(max-width:1400px){
-
     body{
         flex-direction:column;
     }
-
 }
-
 </style>
 </head>
 <body>
