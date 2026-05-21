@@ -211,7 +211,7 @@ function gameOver() {
 }
 
 // ==========================================
-// 5. OBSŁUGA KLAWIATURY I RUCHU
+// 5. OBSŁUGA KLAWIATURY I RUCHU Dawid Pałubicki
 // ==========================================
 document.addEventListener("keydown", e => {
   const key = e.key.toLowerCase();
