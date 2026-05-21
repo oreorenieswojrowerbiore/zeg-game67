@@ -225,6 +225,31 @@ document.addEventListener("keydown", e => {
   drawGame();
 });
 
+const cutsceneImages = [
+  "Fabula 1.png",
+  "Fabula 2.png",
+  "Fabula 3.png"
+];
+
+let cutsceneIndex = 0;
+
+function startCutscene() {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("cutscene").style.display = "block";
+  document.getElementById("cutsceneImage").src = cutsceneImages[0];
+}
+
+function nextCutscene() {
+  cutsceneIndex++;
+
+  if (cutsceneIndex >= cutsceneImages.length) {
+    document.getElementById("cutscene").style.display = "none";
+    startGame();
+  } else {
+    document.getElementById("cutsceneImage").src = cutsceneImages[cutsceneIndex];
+  }
+}
+
 // ==========================================
 // ODŚWIEŻANIE
 // ==========================================
