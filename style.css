@@ -1,11 +1,33 @@
 body {
   margin: 0;
-  background: #1d1328;
+  height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+
+  overflow: hidden;
+
   font-family: monospace;
+
+  background:
+    linear-gradient(#261638, #120b1d);
+}
+
+/* pixelowe gwiazdki */
+body::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    radial-gradient(#ffffff88 1px, transparent 1px),
+    radial-gradient(#ffffff44 1px, transparent 1px);
+
+  background-size: 40px 40px, 70px 70px;
+  background-position: 0 0, 20px 20px;
+
+  image-rendering: pixelated;
 }
 
 #gameContainer {
@@ -13,10 +35,19 @@ body {
 }
 
 canvas {
-  background: black;
-  border: 4px solid #5f3b2d;
+  background: #1a1024;
+
+  border: 6px solid #3f2a2a;
+
+  box-shadow:
+    0 0 0 6px #8c5a3c,
+    0 0 0 12px #d9b06d,
+    0 0 40px #ffb34755;
+
   image-rendering: pixelated;
 }
+
+/* ================= MENU ================= */
 
 #menu {
   position: absolute;
@@ -24,45 +55,135 @@ canvas {
 
   display: flex;
   flex-direction: column;
-
   justify-content: center;
   align-items: center;
 
-  background: linear-gradient(#6387c6, #c78966);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(78, 128, 184, 0.9),
+      rgba(35, 22, 48, 0.95)
+    );
 }
+
+/* pixelowa ramka */
+#menu::before {
+  content: "";
+
+  position: absolute;
+  inset: 18px;
+
+  border: 6px solid #f2d18b;
+
+  box-shadow:
+    inset 0 0 0 6px #6b442d,
+    inset 0 0 0 12px #2d1a1a;
+
+  pointer-events: none;
+}
+
+/* ===== TYTUŁ ===== */
 
 #menu h1 {
-  color: #f1d6a4;
+  margin-bottom: 50px;
 
-  background: #5b3a2c;
+  padding: 18px 48px;
 
-  padding: 15px 40px;
+  font-size: 56px;
 
-  border: 4px solid #c9a16e;
+  color: #a6ff9b;
 
-  font-size: 42px;
+  text-transform: uppercase;
 
-  margin-bottom: 40px;
+  background: #3a2230;
+
+  border: 6px solid #7dff72;
+
+  box-shadow:
+    0 0 0 6px #203d20,
+    0 10px 0 #1a1118;
+
+  text-shadow:
+    4px 4px 0 #203d20;
+
+  image-rendering: pixelated;
+
+  animation: bounce 2s infinite ease-in-out;
 }
 
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+/* ===== BUTTONY ===== */
+
 button {
-  width: 220px;
+  width: 260px;
 
-  padding: 12px;
+  margin: 12px;
+  padding: 16px;
 
-  margin: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  font-family: monospace;
 
-  font-size: 24px;
+  color: #fff6d6;
 
-  background: #5b3a2c;
+  background: #5d8b3d;
 
-  color: #f1d6a4;
+  border: none;
 
-  border: 3px solid #c9a16e;
+  box-shadow:
+    inset -4px -4px 0 #3d5f28,
+    inset 4px 4px 0 #8fd36a,
+    0 8px 0 #2f4720;
 
   cursor: pointer;
+
+  transition:
+    transform 0.08s,
+    filter 0.15s;
+
+  image-rendering: pixelated;
 }
 
 button:hover {
-  background: #764b38;
+  filter: brightness(1.1);
+
+  transform: translateY(-2px);
+}
+
+button:active {
+  transform: translateY(6px);
+
+  box-shadow:
+    inset -4px -4px 0 #3d5f28,
+    inset 4px 4px 0 #8fd36a,
+    0 2px 0 #2f4720;
+}
+
+/* różne kolory przycisków */
+
+button:nth-of-type(2) {
+  background: #4d7dc9;
+
+  box-shadow:
+    inset -4px -4px 0 #2c4d80,
+    inset 4px 4px 0 #7cabff,
+    0 8px 0 #20385e;
+}
+
+button:nth-of-type(3) {
+  background: #c96d4d;
+
+  box-shadow:
+    inset -4px -4px 0 #7d3d2a,
+    inset 4px 4px 0 #ff9f7c,
+    0 8px 0 #5c2b1f;
 }
