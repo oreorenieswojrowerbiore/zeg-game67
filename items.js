@@ -1,3 +1,5 @@
+//Witoński
+
 function checkItems(tile, x, y) {
 
   if (tile === "K") {
