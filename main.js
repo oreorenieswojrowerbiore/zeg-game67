@@ -1,5 +1,5 @@
 // ==========================================
-// 1. INICJALIZACJA GRAFIK ORAZ BEZPIECZNIKI
+// 1. INICJALIZACJA GRAFIK ORAZ BEZPIECZNIKI Witoński
 // ==========================================
 const wallImg = new Image();
 wallImg.src = "assets/wall.png";
@@ -7,11 +7,11 @@ wallImg.src = "assets/wall.png";
 const keyImg = new Image();
 keyImg.src = "assets/key.png";
 
-// Grafika wyjścia (np. drzwi lub portal)
+// Grafika wyjścia (np. drzwi lub portal) Witoński
 const exitImg = new Image();
 exitImg.src = "assets/exit.png";
 
-// Licznik ładowania grafik (.png)
+// Licznik ładowania grafik (.png) Witoński
 let loadedImages = 0;
 const totalImages = 3; 
 
@@ -26,7 +26,7 @@ wallImg.onload = imageLoaded;
 keyImg.onload = imageLoaded;
 exitImg.onload = imageLoaded;
 
-// AUTOMATYCZNE TWORZENIE ELEMENTU DLA PLAYER.GIF
+// AUTOMATYCZNE TWORZENIE ELEMENTU DLA PLAYER.GIF Witoński
 let playerDOM = document.getElementById("playerGif");
 if (!playerDOM) {
   playerDOM = document.createElement("img");
@@ -39,7 +39,7 @@ if (!playerDOM) {
   document.body.appendChild(playerDOM);
 }
 
-// TABLICA NA GIF-Y PRZECIWNIKÓW
+// TABLICA NA GIF-Y PRZECIWNIKÓW Witoński
 let enemyGIFs = [];
 
 if (typeof player === "undefined") {
@@ -58,7 +58,7 @@ let currentLevel = 0;
 let levelMap = [];
 
 // ==========================================
-// 3. LOGIKA AKCJI I MENU
+// 3. LOGIKA AKCJI I MENU Witoński
 // ==========================================
 function startGame() {
   if (loadedImages < totalImages) {
