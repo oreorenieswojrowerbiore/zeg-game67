@@ -63,6 +63,80 @@ let currentLevel = 0;
 let levelMap = [];
 
 // ==========================================
+// CUTSCENKA
+// ==========================================
+
+const cutsceneImages = [
+  "assets/Fabula 1.png",
+  "assets/Fabula 2.png",
+  "assets/Fabula 3.png"
+];
+
+let cutsceneIndex = 0;
+
+// TWORZENIE CUTSCENKI
+const cutscene = document.createElement("div");
+
+cutscene.id = "cutscene";
+
+cutscene.style.position = "fixed";
+cutscene.style.left = "0";
+cutscene.style.top = "0";
+cutscene.style.width = "100%";
+cutscene.style.height = "100%";
+cutscene.style.background = "black";
+cutscene.style.display = "none";
+cutscene.style.justifyContent = "center";
+cutscene.style.alignItems = "center";
+cutscene.style.zIndex = "999";
+cutscene.style.cursor = "pointer";
+
+const cutsceneImage = document.createElement("img");
+
+cutsceneImage.id = "cutsceneImage";
+cutsceneImage.style.maxWidth = "100%";
+cutsceneImage.style.maxHeight = "100%";
+cutsceneImage.style.objectFit = "contain";
+
+cutscene.appendChild(cutsceneImage);
+
+document.body.appendChild(cutscene);
+
+// START CUTSCENKI
+function startCutscene() {
+
+  cutsceneIndex = 0;
+
+  menu.style.display = "none";
+
+  cutscene.style.display = "flex";
+
+  cutsceneImage.src = cutsceneImages[cutsceneIndex];
+}
+
+// NASTĘPNE ZDJĘCIE
+function nextCutscene() {
+
+  cutsceneIndex++;
+
+  // KONIEC CUTSCENKI
+  if (cutsceneIndex >= cutsceneImages.length) {
+
+    cutscene.style.display = "none";
+
+    startGame();
+
+    return;
+  }
+
+  // KOLEJNY OBRAZ
+  cutsceneImage.src = cutsceneImages[cutsceneIndex];
+}
+
+// KLIKANIE
+cutscene.addEventListener("click", nextCutscene);
+
+// ==========================================
 // START
 // ==========================================
 function startGame() {
@@ -72,7 +146,6 @@ function startGame() {
     return;
   }
 
-  menu.style.display = "none";
   playerDOM.style.display = "block";
 
   currentLevel = 0;
@@ -132,7 +205,7 @@ function drawGame() {
         ctx.drawImage(keyImg, x * tileSize, y * tileSize, tileSize, tileSize);
       }
 
-      // PRZECIWNIK (NIE MYLIĆ Z EXIT)
+      // PRZECIWNIK
       else if (tile === "M") {
         ctx.drawImage(enemyImg, x * tileSize, y * tileSize, tileSize, tileSize);
       }
@@ -224,31 +297,6 @@ document.addEventListener("keydown", e => {
 
   drawGame();
 });
-
-const cutsceneImages = [
-  "Fabula 1.png",
-  "Fabula 2.png",
-  "Fabula 3.png"
-];
-
-let cutsceneIndex = 0;
-
-function startCutscene() {
-  document.getElementById("menu").style.display = "none";
-  document.getElementById("cutscene").style.display = "block";
-  document.getElementById("cutsceneImage").src = cutsceneImages[0];
-}
-
-function nextCutscene() {
-  cutsceneIndex++;
-
-  if (cutsceneIndex >= cutsceneImages.length) {
-    document.getElementById("cutscene").style.display = "none";
-    startGame();
-  } else {
-    document.getElementById("cutsceneImage").src = cutsceneImages[cutsceneIndex];
-  }
-}
 
 // ==========================================
 // ODŚWIEŻANIE
