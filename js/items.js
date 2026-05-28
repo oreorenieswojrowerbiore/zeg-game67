@@ -67,8 +67,9 @@ function checkItems(tile, x, y) {
   }
 
   if (tile === "E") {
+  player.keys--;
+  nextLevel();
 
-    nextLevel();
   }
 }function checkItems(tile, x, y) {
 
