@@ -1,0 +1,575 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        url("images/wd.png");
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
+    font-family: 'Press Start 2P', cursive;
+
+    color: white;
+
+    image-rendering: pixelated;
+}
+
+/* EKRANY */
+
+.screen {
+    display: none;
+
+    min-height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+/* MENU */
+
+#menu {
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45));
+}
+
+/* TYTUŁ */
+
+h1 {
+    font-size: 72px;
+
+    line-height: 1.4;
+
+    color: #89ff90;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+        6px 6px 0 #1f4d24,
+        12px 12px 0 #000;
+
+    animation: titleFloat 2s infinite ease-in-out;
+}
+
+@keyframes titleFloat {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+p {
+    font-size: 18px;
+
+    color: #d9ffd9;
+
+    width: 70%;
+
+    line-height: 1.8;
+
+    margin-bottom: 40px;
+}
+
+/* PRZYCISKI */
+
+button {
+
+    width: 420px;
+
+    padding: 22px;
+
+    margin: 16px;
+
+    font-size: 18px;
+
+    font-family: 'Press Start 2P', cursive;
+
+    color: white;
+
+    background: #2f5e33;
+
+    border:
+        6px solid #8fff96;
+
+    cursor: pointer;
+
+    transition: 0.12s;
+
+    box-shadow:
+        inset -4px -4px 0 #1d3b20,
+        inset 4px 4px 0 #5fc767,
+        0 8px 0 #162918,
+        0 12px 20px rgba(0,0,0,0.6);
+}
+
+button:hover {
+
+    background: #417d47;
+
+    transform: scale(1.04);
+}
+
+button:active {
+
+    transform: translateY(5px);
+
+    box-shadow:
+        inset -2px -2px 0 #1d3b20,
+        inset 2px 2px 0 #5fc767,
+        0 2px 0 #162918;
+}
+
+/* STORY */
+
+#story {
+    background: rgba(0,0,0,0.82);
+}
+
+#storyImage {
+
+    width: 950px;
+
+    max-width: 90%;
+
+    border: 8px solid #8fff96;
+
+    box-shadow:
+        0 0 0 8px #234327,
+        0 0 40px rgba(0,255,120,0.15);
+
+    image-rendering: pixelated;
+}
+
+/* SETTINGS / CREDITS */
+
+#settings,
+#credits {
+
+    background: rgba(0,0,0,0.85);
+}
+
+h2 {
+
+    font-size: 44px;
+
+    margin-bottom: 40px;
+
+    color: #8fff96;
+
+    text-shadow:
+        4px 4px 0 #234327,
+        8px 8px 0 #000;
+}
+
+/* HUD */
+
+#hud {
+
+    width: 100%;
+
+    display: flex;
+
+    justify-content: space-around;
+    align-items: center;
+
+    padding: 24px 0;
+
+    background: #152417;
+
+    border-bottom: 8px solid #8fff96;
+
+    font-size: 16px;
+
+    box-shadow:
+        0 6px 0 #09110a;
+}
+
+/* GRA */
+
+#game {
+
+    justify-content: flex-start;
+
+    background-color: #0d120d;
+
+    background-image:
+
+        linear-gradient(
+            rgba(255,255,255,0.015) 2px,
+            transparent 2px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.015) 2px,
+            transparent 2px
+        );
+
+    background-size: 32px 32px;
+
+}
+
+/* LABIRYNT */
+
+#gameBoard {
+
+    width: 720px;
+    height: 720px;
+
+    margin-top: 25px;
+
+    background-color: #1b2a1d;
+
+    background-image:
+
+        linear-gradient(
+            rgba(0,0,0,0.12) 2px,
+            transparent 2px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,0.12) 2px,
+            transparent 2px
+        );
+
+    background-size: 32px 32px;
+
+    border: 10px solid #8fff96;
+
+    box-shadow:
+
+        0 0 0 6px #234327,
+        0 0 0 12px #0c150d,
+        0 0 30px rgba(0,255,100,0.15);
+
+    position: relative;
+
+    image-rendering: pixelated;
+}
+
+/* HUD NAPISY */
+
+#hearts,
+#floor,
+#keyInfo {
+    text-shadow:
+        2px 2px 0 #000;
+}
+
+/* RETRO EFEKTY */
+
+* {
+    image-rendering: pixelated;
+    box-sizing: border-box;
+}
+#gameBoard {
+    display: grid;
+    padding: 0;
+    overflow: hidden;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+}
+
+.wall {
+    background:
+        linear-gradient(135deg, #234327 25%, #172b19 25% 50%, #234327 50% 75%, #172b19 75%);
+    background-size: 24px 24px;
+    border: 2px solid #0b160c;
+}
+
+.floor {
+    background: #1a241a;
+    border: 1px solid #263826;
+}
+
+.player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+.player {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+.exit {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+
+}
+.key {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+.tile {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.wall {
+    background-image: url("images/wall.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.floor {
+    background-color: #182818;
+}
+
+.player,
+.exit,
+.key {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+.enemy {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+#gameBoard {
+    display: grid;
+    overflow: hidden;
+}
+
+.tile {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.wall {
+    background-image: url("images/wall.jpg");
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #071007;
+}
+
+.floor {
+    background-color: #142414;
+    border: 1px solid #1d331d;
+}
+
+.player,
+.enemy,
+.key,
+.exit,
+.medic {
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    image-rendering: pixelated;
+
+    pointer-events: none;
+
+}
+.menuButtons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 25px;
+
+}
+.instructionsBox {
+
+    margin-top: 20px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(
+            rgba(20,40,20,0.95),
+            rgba(10,20,10,0.95)
+        );
+
+    border: 6px solid #8fff96;
+
+    box-shadow:
+        0 0 0 6px #234327,
+        0 0 30px rgba(0,255,120,0.2);
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    max-width: 750px;
+
+    line-height: 2;
+
+    text-align: left;
+
+    font-size: 18px;
+
+}
+#instructions {
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.82),
+            rgba(0,0,0,0.9)
+        ),
+        url("images/wd.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+}
+.riddle {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+.puzzleBox {
+    display: none;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 600px;
+
+    padding: 30px;
+
+    background: #102010;
+
+    border: 6px solid #8fff96;
+
+    box-shadow:
+        0 0 0 6px #234327,
+        0 0 40px rgba(0,255,120,0.3);
+
+    z-index: 999;
+
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+#floorTransition {
+    display: none;
+
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 35px 60px;
+
+    background: #102010;
+
+    border: 6px solid #8fff96;
+
+    box-shadow:
+        0 0 0 6px #234327,
+        0 0 40px rgba(0,255,120,0.35);
+
+    color: #8fff96;
+
+    font-family: 'Press Start 2P', cursive;
+
+    font-size: 36px;
+
+    z-index: 9999;
+
+    text-shadow:
+        4px 4px 0 #000;
+
+    animation: floorPop 0.8s ease-in-out;
+}
+
+@keyframes floorPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(1.15);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+#skipFloorButton {
+
+    width: 120px;
+
+    padding: 10px;
+
+    font-size: 12px;
+
+    margin: 0;
+
+}
